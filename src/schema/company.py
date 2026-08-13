@@ -1,5 +1,12 @@
 from typing import List, Optional
+from enum import Enum
 from pydantic import BaseModel, Field
+
+class Risk(str, Enum):
+    EXECUTION = "execution"
+    CYCLICALITY = "cyclicality"
+    CUSTOMER_CONCENTRATION = "customer concentration"
+
 
 class CompanyProfile(BaseModel):
     """
@@ -39,7 +46,7 @@ class CompanyProfile(BaseModel):
         default=None, 
         description="Total AI Factory Growth Score (Moat * Margin * Growth)."
     )
-    risks: List[str] = Field(
+    risks: List[Risk] = Field(
         default_factory=list, 
         description="Key risks identified for this target (e.g., cyclicality, customer concentration)."
     )

@@ -1,5 +1,5 @@
 import os
-from src.schema.company import CompanyProfile
+from src.schema.company import CompanyProfile, Risk
 from src.schema.state import ParentState
 from src.agents.report import generate_markdown_report, report_node
 
@@ -13,7 +13,7 @@ def test_generate_markdown_report():
             margin_score=5,
             growth_cagr=20.0,
             total_score=400.0,
-            risks=["cyclicality"],
+            risks=[Risk.CYCLICALITY],
             risk_discount=0.8,
             catalysts=["New GPU generation"]
         )

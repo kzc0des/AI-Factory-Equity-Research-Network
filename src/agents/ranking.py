@@ -1,8 +1,8 @@
 from typing import Any, Dict
-from src.schema.company import CompanyProfile
+from src.schema.company import CompanyProfile, Risk
 from src.schema.state import ParentState
 
-def compute_risk_discount(risks: list[str]) -> float:
+def compute_risk_discount(risks: list[Risk]) -> float:
     """
     Computes a risk discount multiplier based on identified risks.
     Base multiplier is 1.0.
@@ -11,10 +11,9 @@ def compute_risk_discount(risks: list[str]) -> float:
     """
     discount = 1.0
     for risk in risks:
-        risk_lower = risk.lower()
-        if "execution" in risk_lower:
+        if risk == Risk.EXECUTION:
             discount *= 0.9
-        if "cyclicality" in risk_lower:
+        if risk == Risk.CYCLICALITY:
             discount *= 0.8
     return discount
 

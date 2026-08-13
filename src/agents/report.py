@@ -30,7 +30,7 @@ def generate_markdown_report(state: ParentState) -> str:
         if profile.risks:
             report.append("**Risks:**")
             for risk in profile.risks:
-                report.append(f"- {risk}")
+                report.append(f"- {risk.value}")
         
         report.append("\n---\n")
         
