@@ -6,6 +6,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 from src.schema.company import CompanyProfile
 from src.schema.risk import RiskExtraction
+from src.agents.utils import get_llm
 
 def risk_adjustment_node(state: CompanyProfile) -> Dict[str, Any]:
     """
@@ -17,11 +18,7 @@ def risk_adjustment_node(state: CompanyProfile) -> Dict[str, Any]:
     Returns:
         A dictionary containing the partial state updates (risks).
     """
-    llm = ChatOpenAI(
-        model="gpt-4o",
-        temperature=0,
-        api_key=SecretStr(os.environ.get("OPENAI_API_KEY", "dummy_key"))
-    )
+    llm = get_llm()
     
     structured_llm = llm.with_structured_output(RiskExtraction)
     

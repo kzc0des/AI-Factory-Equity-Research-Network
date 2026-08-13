@@ -6,6 +6,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 from src.schema.company import CompanyProfile
 from src.schema.moat import MoatCriteria
+from src.agents.utils import get_llm
 
 def calculate_moat_score(criteria: MoatCriteria) -> float:
     """
@@ -35,13 +36,7 @@ def moat_analysis_node(state: CompanyProfile) -> Dict[str, Any]:
     Returns:
         A dictionary containing the partial state updates (moat_score).
     """
-    # In a real environment, we'd ensure OPENAI_API_KEY is set.
-    # For testing, we allow overriding via an environment variable or default to a dummy key.
-    llm = ChatOpenAI(
-        model="gpt-4o",
-        temperature=0,
-        api_key=SecretStr(os.environ.get("OPENAI_API_KEY", "dummy_key"))
-    )
+    llm = get_llm()
     
     structured_llm = llm.with_structured_output(MoatCriteria)
     

@@ -6,6 +6,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 from src.schema.company import CompanyProfile
 from src.schema.growth import GrowthExtraction
+from src.agents.utils import get_llm
 
 def retrieve_financial_documents(ticker: str) -> str:
     """
@@ -32,12 +33,7 @@ def growth_forecast_node(state: CompanyProfile) -> Dict[str, Any]:
     """
     documents = retrieve_financial_documents(state.ticker)
     
-    # In a real environment, we'd ensure OPENAI_API_KEY is set.
-    llm = ChatOpenAI(
-        model="gpt-4o",
-        temperature=0,
-        api_key=SecretStr(os.environ.get("OPENAI_API_KEY", "dummy_key"))
-    )
+    llm = get_llm()
     
     structured_llm = llm.with_structured_output(GrowthExtraction)
     
