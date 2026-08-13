@@ -11,6 +11,7 @@ from src.agents.growth import growth_forecast_node
 from src.agents.ranking import ranking_node
 from src.agents.report import report_node
 from src.agents.risk import risk_adjustment_node
+from src.agents.market import market_mapping_node
 
 def build_company_subgraph() -> StateGraph:
     """
@@ -19,12 +20,14 @@ def build_company_subgraph() -> StateGraph:
     """
     workflow = StateGraph(CompanyProfile)
     
+    workflow.add_node("market", market_mapping_node)
     workflow.add_node("margin", margin_analysis_node)
     workflow.add_node("moat", moat_analysis_node)
     workflow.add_node("growth", growth_forecast_node)
     workflow.add_node("risk", risk_adjustment_node)
     
-    workflow.add_edge(START, "margin")
+    workflow.add_edge(START, "market")
+    workflow.add_edge("market", "margin")
     workflow.add_edge("margin", "moat")
     workflow.add_edge("moat", "growth")
     workflow.add_edge("growth", "risk")
