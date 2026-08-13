@@ -1,5 +1,8 @@
 from typing import Any, Dict, Optional
+import logging
 import yfinance # type: ignore
+
+logger = logging.getLogger(__name__)
 
 from src.schema.company import CompanyProfile
 
@@ -40,8 +43,7 @@ def fetch_operating_margin(ticker: str) -> Optional[float]:
             return margin_decimal * 100.0
             
     except Exception as e:
-        # In a real environment, we'd log this exception
-        pass
+        logger.error(f"Error fetching operating margin for {ticker}: {e}")
         
     return None
 

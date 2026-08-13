@@ -80,3 +80,16 @@ def test_margin_analysis_node_missing_margin(mock_fetch):
     # Assert
     assert update["operating_margin"] is None
     assert update["margin_score"] is None
+
+@patch("src.agents.margin.yfinance")
+@patch("src.agents.margin.logger")
+def test_fetch_operating_margin_exception(mock_logger, mock_yfinance):
+    # Arrange
+    mock_yfinance.Ticker.side_effect = Exception("API error")
+
+    # Act
+    margin = fetch_operating_margin("NVDA")
+
+    # Assert
+    assert margin is None
+    mock_logger.error.assert_called_once_with("Error fetching operating margin for NVDA: API error")
