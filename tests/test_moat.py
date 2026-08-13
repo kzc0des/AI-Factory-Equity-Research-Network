@@ -11,7 +11,7 @@ def test_calculate_moat_score():
         has_high_switching_costs=True,
         has_scarcity_or_bottleneck=True
     )
-    assert calculate_moat_score(criteria) == 4.0
+    assert calculate_moat_score(criteria) == 5.0
     
     # Test all false
     criteria_false = MoatCriteria(
@@ -29,7 +29,7 @@ def test_calculate_moat_score():
         has_high_switching_costs=True,
         has_scarcity_or_bottleneck=False
     )
-    assert calculate_moat_score(criteria_mixed) == 2.0
+    assert calculate_moat_score(criteria_mixed) == 2.5
 
 @patch("src.agents.moat.ChatOpenAI")
 def test_moat_analysis_node_success(mock_chat_openai):
@@ -84,7 +84,7 @@ def test_moat_analysis_node_chain(mock_chat_openai, mock_chat_prompt_template):
     )
     
     result = moat_analysis_node(state)
-    assert result == {"moat_score": 2.0}
+    assert result == {"moat_score": 2.5}
     mock_chain.invoke.assert_called_once()
 
 @patch("src.agents.moat.ChatPromptTemplate")

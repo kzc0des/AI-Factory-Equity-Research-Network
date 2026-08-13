@@ -21,7 +21,9 @@ def calculate_moat_score(criteria: MoatCriteria) -> float:
         score += 1.0
     if criteria.has_scarcity_or_bottleneck:
         score += 1.0
-    return score
+    
+    # Scale from max 4.0 to max 5.0
+    return score * 1.25
 
 def moat_analysis_node(state: CompanyProfile) -> Dict[str, Any]:
     """
