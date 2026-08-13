@@ -8,6 +8,7 @@ def compute_risk_discount(risks: list[Risk]) -> float:
     Base multiplier is 1.0.
     'execution' reduces by 10% (0.9).
     'cyclicality' reduces by 20% (0.8).
+    'customer concentration' reduces by 15% (0.85).
     """
     discount = 1.0
     for risk in risks:
@@ -15,6 +16,8 @@ def compute_risk_discount(risks: list[Risk]) -> float:
             discount *= 0.9
         if risk == Risk.CYCLICALITY:
             discount *= 0.8
+        if risk == Risk.CUSTOMER_CONCENTRATION:
+            discount *= 0.85
     return discount
 
 def compute_tafgs(profile: CompanyProfile) -> float:
