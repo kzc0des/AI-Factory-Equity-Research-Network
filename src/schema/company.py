@@ -7,6 +7,13 @@ class Risk(str, Enum):
     CYCLICALITY = "cyclicality"
     CUSTOMER_CONCENTRATION = "customer concentration"
 
+class AIFactoryRole(str, Enum):
+    COMPUTE = "Compute"
+    NETWORKING = "Networking"
+    POWER = "Power"
+    COOLING = "Cooling"
+    CONSTRUCTION = "Construction"
+
 
 class CompanyProfile(BaseModel):
     """
@@ -14,7 +21,7 @@ class CompanyProfile(BaseModel):
     """
     ticker: str = Field(description="The stock ticker symbol of the company.")
     company_name: str = Field(description="The full name of the company.")
-    ai_factory_role: Optional[str] = Field(
+    ai_factory_role: Optional[AIFactoryRole] = Field(
         default=None, 
         description="The company's role in the AI Factory ecosystem (e.g., Compute, Networking, Power, Cooling)."
     )

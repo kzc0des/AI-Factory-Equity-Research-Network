@@ -29,13 +29,13 @@ SEED_LIST: List[Dict[str, Any]] = [
     {
         "ticker": "VRT",
         "company_name": "Vertiv Holdings",
-        "ai_factory_role": "Power and Cooling",
+        "ai_factory_role": "Cooling",
         "is_hyperscaler": False,
     },
     {
         "ticker": "CEG",
         "company_name": "Constellation Energy",
-        "ai_factory_role": "Power Infrastructure",
+        "ai_factory_role": "Power",
         "is_hyperscaler": False,
     },
     {

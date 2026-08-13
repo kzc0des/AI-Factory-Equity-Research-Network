@@ -13,7 +13,8 @@ def generate_markdown_report(state: ParentState) -> str:
     for rank, profile in enumerate(top_20, start=1):
         report.append(f"## {rank}. {profile.company_name} ({profile.ticker})")
         report.append(f"**Total AI Factory Growth Score:** {profile.total_score:.2f}")
-        report.append(f"**AI Factory Role:** {profile.ai_factory_role or 'N/A'}")
+        role_str = profile.ai_factory_role.value if profile.ai_factory_role else 'N/A'
+        report.append(f"**AI Factory Role:** {role_str}")
         report.append(f"**Moat Score:** {profile.moat_score}")
         report.append(f"**Margin Score:** {profile.margin_score}")
         report.append(f"**Growth CAGR:** {profile.growth_cagr}%")
