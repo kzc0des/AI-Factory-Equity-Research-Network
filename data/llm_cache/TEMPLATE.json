@@ -1,0 +1,12 @@
+{
+  "ticker": "TEMPLATE",
+  "company_name": "Template Company Name",
+  "ai_factory_role": "Compute",
+  "is_hyperscaler": false,
+  "moat_score": 3.0,
+  "growth_cagr": 15.0,
+  "risks": [
+    "execution",
+    "cyclicality"
+  ]
+}
