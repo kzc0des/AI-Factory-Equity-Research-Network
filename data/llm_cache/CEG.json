@@ -1,0 +1,11 @@
+{
+  "ticker": "CEG",
+  "company_name": "Constellation Energy Corporation",
+  "ai_factory_role": "Power",
+  "is_hyperscaler": false,
+  "moat_score": 3.75,
+  "growth_cagr": 20.0,
+  "risks": [
+    "cyclicality"
+  ]
+}

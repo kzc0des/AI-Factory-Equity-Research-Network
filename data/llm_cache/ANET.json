@@ -1,0 +1,11 @@
+{
+  "ticker": "ANET",
+  "company_name": "Arista Networks, Inc.",
+  "ai_factory_role": "Networking",
+  "is_hyperscaler": false,
+  "moat_score": 3.75,
+  "growth_cagr": 25.0,
+  "risks": [
+    "customer concentration"
+  ]
+}

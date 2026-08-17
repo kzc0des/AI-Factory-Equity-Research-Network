@@ -1,0 +1,12 @@
+{
+  "ticker": "SMCI",
+  "company_name": "Super Micro Computer, Inc.",
+  "ai_factory_role": "Compute",
+  "is_hyperscaler": false,
+  "moat_score": 2.5,
+  "growth_cagr": 35.0,
+  "risks": [
+    "execution",
+    "customer concentration"
+  ]
+}

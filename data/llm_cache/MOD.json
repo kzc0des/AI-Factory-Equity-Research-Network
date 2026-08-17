@@ -1,0 +1,11 @@
+{
+  "ticker": "MOD",
+  "company_name": "Modine Manufacturing Company",
+  "ai_factory_role": "Cooling",
+  "is_hyperscaler": false,
+  "moat_score": 2.5,
+  "growth_cagr": 15.0,
+  "risks": [
+    "execution"
+  ]
+}

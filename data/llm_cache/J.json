@@ -1,0 +1,11 @@
+{
+  "ticker": "J",
+  "company_name": "Jacobs Solutions Inc.",
+  "ai_factory_role": "Construction",
+  "is_hyperscaler": false,
+  "moat_score": 1.25,
+  "growth_cagr": 9.0,
+  "risks": [
+    "execution"
+  ]
+}

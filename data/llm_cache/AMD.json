@@ -1,0 +1,12 @@
+{
+  "ticker": "AMD",
+  "company_name": "Advanced Micro Devices, Inc.",
+  "ai_factory_role": "Compute",
+  "is_hyperscaler": false,
+  "moat_score": 3.75,
+  "growth_cagr": 30.0,
+  "risks": [
+    "execution",
+    "cyclicality"
+  ]
+}

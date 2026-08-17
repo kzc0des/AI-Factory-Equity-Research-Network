@@ -1,0 +1,11 @@
+{
+  "ticker": "EME",
+  "company_name": "EMCOR Group, Inc.",
+  "ai_factory_role": "Construction",
+  "is_hyperscaler": false,
+  "moat_score": 2.5,
+  "growth_cagr": 11.0,
+  "risks": [
+    "cyclicality"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "ticker": "GE",
+  "company_name": "General Electric Company",
+  "ai_factory_role": "Power",
+  "is_hyperscaler": false,
+  "moat_score": 2.5,
+  "growth_cagr": 10.0,
+  "risks": [
+    "execution"
+  ]
+}

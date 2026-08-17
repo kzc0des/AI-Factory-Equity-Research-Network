@@ -1,0 +1,11 @@
+{
+  "ticker": "DELL",
+  "company_name": "Dell Technologies Inc.",
+  "ai_factory_role": "Compute",
+  "is_hyperscaler": false,
+  "moat_score": 2.5,
+  "growth_cagr": 15.0,
+  "risks": [
+    "execution"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "ticker": "LITE",
+  "company_name": "Lumentum Holdings Inc.",
+  "ai_factory_role": "Networking",
+  "is_hyperscaler": false,
+  "moat_score": 2.5,
+  "growth_cagr": 18.0,
+  "risks": [
+    "customer concentration",
+    "cyclicality"
+  ]
+}

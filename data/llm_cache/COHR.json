@@ -1,0 +1,11 @@
+{
+  "ticker": "COHR",
+  "company_name": "Coherent Corp.",
+  "ai_factory_role": "Networking",
+  "is_hyperscaler": false,
+  "moat_score": 2.5,
+  "growth_cagr": 16.0,
+  "risks": [
+    "execution"
+  ]
+}

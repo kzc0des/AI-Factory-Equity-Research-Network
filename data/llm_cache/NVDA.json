@@ -1,0 +1,12 @@
+{
+  "ticker": "NVDA",
+  "company_name": "NVIDIA Corporation",
+  "ai_factory_role": "Compute",
+  "is_hyperscaler": false,
+  "moat_score": 5.0,
+  "growth_cagr": 45.0,
+  "risks": [
+    "cyclicality",
+    "customer concentration"
+  ]
+}

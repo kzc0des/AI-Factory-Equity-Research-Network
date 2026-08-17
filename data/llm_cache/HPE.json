@@ -1,0 +1,11 @@
+{
+  "ticker": "HPE",
+  "company_name": "Hewlett Packard Enterprise",
+  "ai_factory_role": "Compute",
+  "is_hyperscaler": false,
+  "moat_score": 2.5,
+  "growth_cagr": 12.0,
+  "risks": [
+    "execution"
+  ]
+}

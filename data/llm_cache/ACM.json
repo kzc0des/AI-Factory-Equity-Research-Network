@@ -1,0 +1,11 @@
+{
+  "ticker": "ACM",
+  "company_name": "AECOM",
+  "ai_factory_role": "Construction",
+  "is_hyperscaler": false,
+  "moat_score": 1.25,
+  "growth_cagr": 8.0,
+  "risks": [
+    "execution"
+  ]
+}

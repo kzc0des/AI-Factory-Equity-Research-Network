@@ -1,0 +1,12 @@
+{
+  "ticker": "AVGO",
+  "company_name": "Broadcom Inc.",
+  "ai_factory_role": "Networking",
+  "is_hyperscaler": false,
+  "moat_score": 5.0,
+  "growth_cagr": 22.0,
+  "risks": [
+    "execution",
+    "cyclicality"
+  ]
+}
