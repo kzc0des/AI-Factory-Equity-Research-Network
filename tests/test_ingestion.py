@@ -44,7 +44,10 @@ def test_filter_companies_with_default_seed_list():
     assert "ANET" in tickers
     assert "VRT" in tickers
     assert "CEG" in tickers
-    assert len(result) == 4
+    assert "AMD" in tickers
+    assert "VST" in tickers
+    assert "J" in tickers
+    assert len(result) == 20
     
     for company in result:
         assert isinstance(company, CompanyProfile)

@@ -15,34 +15,135 @@ SEED_LIST: List[Dict[str, Any]] = [
         "is_hyperscaler": True,
     },
     {
+        "ticker": "AAPL",
+        "company_name": "Apple Inc.",
+        "ai_factory_role": None,
+        "is_hyperscaler": True,
+    },
+    # Compute
+    {
         "ticker": "NVDA",
         "company_name": "NVIDIA Corporation",
         "ai_factory_role": "Compute",
         "is_hyperscaler": False,
     },
     {
+        "ticker": "AMD",
+        "company_name": "Advanced Micro Devices, Inc.",
+        "ai_factory_role": "Compute",
+        "is_hyperscaler": False,
+    },
+    {
+        "ticker": "SMCI",
+        "company_name": "Super Micro Computer, Inc.",
+        "ai_factory_role": "Compute",
+        "is_hyperscaler": False,
+    },
+    {
+        "ticker": "DELL",
+        "company_name": "Dell Technologies Inc.",
+        "ai_factory_role": "Compute",
+        "is_hyperscaler": False,
+    },
+    {
+        "ticker": "HPE",
+        "company_name": "Hewlett Packard Enterprise",
+        "ai_factory_role": "Compute",
+        "is_hyperscaler": False,
+    },
+    # Networking
+    {
         "ticker": "ANET",
-        "company_name": "Arista Networks",
+        "company_name": "Arista Networks, Inc.",
         "ai_factory_role": "Networking",
         "is_hyperscaler": False,
     },
     {
-        "ticker": "VRT",
-        "company_name": "Vertiv Holdings",
-        "ai_factory_role": "Cooling",
+        "ticker": "AVGO",
+        "company_name": "Broadcom Inc.",
+        "ai_factory_role": "Networking",
         "is_hyperscaler": False,
     },
     {
+        "ticker": "LITE",
+        "company_name": "Lumentum Holdings Inc.",
+        "ai_factory_role": "Networking",
+        "is_hyperscaler": False,
+    },
+    {
+        "ticker": "COHR",
+        "company_name": "Coherent Corp.",
+        "ai_factory_role": "Networking",
+        "is_hyperscaler": False,
+    },
+    # Power
+    {
         "ticker": "CEG",
-        "company_name": "Constellation Energy",
+        "company_name": "Constellation Energy Corporation",
         "ai_factory_role": "Power",
         "is_hyperscaler": False,
     },
     {
-        "ticker": "AAPL",
-        "company_name": "Apple Inc.",
-        "ai_factory_role": None, # Zero-exposure or tech giant
-        "is_hyperscaler": True, # Treating as hyperscaler/builder for this context
+        "ticker": "VST",
+        "company_name": "Vistra Corp.",
+        "ai_factory_role": "Power",
+        "is_hyperscaler": False,
+    },
+    {
+        "ticker": "GE",
+        "company_name": "General Electric Company",
+        "ai_factory_role": "Power",
+        "is_hyperscaler": False,
+    },
+    {
+        "ticker": "ETN",
+        "company_name": "Eaton Corporation plc",
+        "ai_factory_role": "Power",
+        "is_hyperscaler": False,
+    },
+    # Cooling
+    {
+        "ticker": "VRT",
+        "company_name": "Vertiv Holdings Co.",
+        "ai_factory_role": "Cooling",
+        "is_hyperscaler": False,
+    },
+    {
+        "ticker": "MOD",
+        "company_name": "Modine Manufacturing Company",
+        "ai_factory_role": "Cooling",
+        "is_hyperscaler": False,
+    },
+    {
+        "ticker": "AAON",
+        "company_name": "AAON, Inc.",
+        "ai_factory_role": "Cooling",
+        "is_hyperscaler": False,
+    },
+    # Construction
+    {
+        "ticker": "ACM",
+        "company_name": "AECOM",
+        "ai_factory_role": "Construction",
+        "is_hyperscaler": False,
+    },
+    {
+        "ticker": "J",
+        "company_name": "Jacobs Solutions Inc.",
+        "ai_factory_role": "Construction",
+        "is_hyperscaler": False,
+    },
+    {
+        "ticker": "EME",
+        "company_name": "EMCOR Group, Inc.",
+        "ai_factory_role": "Construction",
+        "is_hyperscaler": False,
+    },
+    {
+        "ticker": "PWR",
+        "company_name": "Quanta Services, Inc.",
+        "ai_factory_role": "Construction",
+        "is_hyperscaler": False,
     }
 ]
 
