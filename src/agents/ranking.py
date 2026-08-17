@@ -53,6 +53,8 @@ def ranking_node(state: ParentState) -> Dict[str, Any]:
     # Compute TAFGS for each profile
     updated_profiles = []
     for profile in profiles:
+        if isinstance(profile, dict):
+            profile = CompanyProfile(**profile)
         total_score = compute_tafgs(profile)
         discount = compute_risk_discount(profile.risks)
         # Update the profile (create a copy to avoid mutating state directly if using BaseModel)

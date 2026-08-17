@@ -1,6 +1,7 @@
 import os
 from typing import Any, Dict
 from src.schema.state import ParentState
+from src.schema.company import CompanyProfile
 
 def generate_markdown_report(state: ParentState) -> str:
     """
@@ -11,6 +12,8 @@ def generate_markdown_report(state: ParentState) -> str:
     report = ["# Top 20 AI Factory Growth Equity Targets\n"]
     
     for rank, profile in enumerate(top_20, start=1):
+        if isinstance(profile, dict):
+            profile = CompanyProfile(**profile)
         report.append(f"## {rank}. {profile.company_name} ({profile.ticker})")
         report.append(f"**Total AI Factory Growth Score:** {profile.total_score:.2f}")
         role_str = profile.ai_factory_role.value if profile.ai_factory_role else 'N/A'
