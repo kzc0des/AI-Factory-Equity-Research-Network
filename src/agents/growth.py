@@ -4,11 +4,10 @@ from pydantic import SecretStr
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 
-import json
 import re
 from src.schema.company import CompanyProfile
 from src.schema.growth import GrowthExtraction
-from src.agents.utils import get_llm, is_demo_mode
+from src.agents.utils import get_llm, is_demo_mode, load_cached_llm_profile
 
 def retrieve_financial_documents(ticker: str) -> str:
     """
@@ -35,16 +34,11 @@ def growth_forecast_node(state: CompanyProfile) -> Dict[str, Any]:
     """
     if is_demo_mode():
         # First try to load from the LLM cache JSON
-        cache_path = os.path.join("data", "llm_cache", f"{state.ticker}.json")
-        if os.path.exists(cache_path):
-            try:
-                with open(cache_path, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                cagr = data.get("growth_cagr")
-                if cagr is not None:
-                    return {"growth_cagr": float(cagr)}
-            except Exception:
-                pass
+        data = load_cached_llm_profile(state.ticker)
+        if data:
+            cagr = data.get("growth_cagr")
+            if cagr is not None:
+                return {"growth_cagr": float(cagr)}
 
         # Fallback: load and parse the local transcript file
         transcript_path = os.path.join("data", "transcripts", f"{state.ticker}.txt")

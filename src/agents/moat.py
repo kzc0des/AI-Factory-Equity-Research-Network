@@ -4,10 +4,9 @@ from pydantic import SecretStr
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 
-import json
 from src.schema.company import CompanyProfile
 from src.schema.moat import MoatCriteria
-from src.agents.utils import get_llm, is_demo_mode
+from src.agents.utils import get_llm, is_demo_mode, load_cached_llm_profile
 
 def calculate_moat_score(criteria: MoatCriteria) -> float:
     """
@@ -38,14 +37,9 @@ def moat_analysis_node(state: CompanyProfile) -> Dict[str, Any]:
         A dictionary containing the partial state updates (moat_score).
     """
     if is_demo_mode():
-        cache_path = os.path.join("data", "llm_cache", f"{state.ticker}.json")
-        if os.path.exists(cache_path):
-            try:
-                with open(cache_path, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                return {"moat_score": data.get("moat_score")}
-            except Exception:
-                pass
+        data = load_cached_llm_profile(state.ticker)
+        if data:
+            return {"moat_score": data.get("moat_score")}
         return {"moat_score": None}
 
     llm = get_llm()

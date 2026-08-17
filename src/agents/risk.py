@@ -4,10 +4,9 @@ from pydantic import SecretStr
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 
-import json
 from src.schema.company import CompanyProfile, Risk
 from src.schema.risk import RiskExtraction
-from src.agents.utils import get_llm, is_demo_mode
+from src.agents.utils import get_llm, is_demo_mode, load_cached_llm_profile
 
 def risk_adjustment_node(state: CompanyProfile) -> Dict[str, Any]:
     """
@@ -20,15 +19,10 @@ def risk_adjustment_node(state: CompanyProfile) -> Dict[str, Any]:
         A dictionary containing the partial state updates (risks).
     """
     if is_demo_mode():
-        cache_path = os.path.join("data", "llm_cache", f"{state.ticker}.json")
-        if os.path.exists(cache_path):
-            try:
-                with open(cache_path, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                risks_str = data.get("risks", [])
-                return {"risks": [Risk(r) for r in risks_str]}
-            except Exception:
-                pass
+        data = load_cached_llm_profile(state.ticker)
+        if data:
+            risks_str = data.get("risks", [])
+            return {"risks": [Risk(r) for r in risks_str]}
         return {"risks": []}
 
     llm = get_llm()
