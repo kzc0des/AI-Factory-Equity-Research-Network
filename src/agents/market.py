@@ -4,9 +4,10 @@ from pydantic import SecretStr
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 
+import json
 from src.schema.company import CompanyProfile
 from src.schema.market import MarketMappingResult
-from src.agents.utils import get_llm
+from src.agents.utils import get_llm, is_demo_mode
 
 def market_mapping_node(state: CompanyProfile) -> Dict[str, Any]:
     """
@@ -18,6 +19,23 @@ def market_mapping_node(state: CompanyProfile) -> Dict[str, Any]:
     Returns:
         A dictionary containing the partial state updates (ai_factory_role, is_hyperscaler).
     """
+    if is_demo_mode():
+        cache_path = os.path.join("data", "llm_cache", f"{state.ticker}.json")
+        if os.path.exists(cache_path):
+            try:
+                with open(cache_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                return {
+                    "ai_factory_role": data.get("ai_factory_role"),
+                    "is_hyperscaler": data.get("is_hyperscaler", False),
+                }
+            except Exception:
+                pass
+        return {
+            "ai_factory_role": None,
+            "is_hyperscaler": False,
+        }
+
     llm = get_llm()
     
     structured_llm = llm.with_structured_output(MarketMappingResult)

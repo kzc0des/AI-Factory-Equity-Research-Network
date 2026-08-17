@@ -4,9 +4,11 @@ from pydantic import SecretStr
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 
+import json
+import re
 from src.schema.company import CompanyProfile
 from src.schema.growth import GrowthExtraction
-from src.agents.utils import get_llm
+from src.agents.utils import get_llm, is_demo_mode
 
 def retrieve_financial_documents(ticker: str) -> str:
     """
@@ -31,6 +33,33 @@ def growth_forecast_node(state: CompanyProfile) -> Dict[str, Any]:
     Returns:
         A dictionary containing the partial state updates (growth_cagr).
     """
+    if is_demo_mode():
+        # First try to load from the LLM cache JSON
+        cache_path = os.path.join("data", "llm_cache", f"{state.ticker}.json")
+        if os.path.exists(cache_path):
+            try:
+                with open(cache_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                cagr = data.get("growth_cagr")
+                if cagr is not None:
+                    return {"growth_cagr": float(cagr)}
+            except Exception:
+                pass
+
+        # Fallback: load and parse the local transcript file
+        transcript_path = os.path.join("data", "transcripts", f"{state.ticker}.txt")
+        if os.path.exists(transcript_path):
+            try:
+                with open(transcript_path, "r", encoding="utf-8") as f:
+                    content = f.read()
+                # Search for "CAGR of [value]%"
+                match = re.search(r"CAGR of (\d+(?:\.\d+)?)%", content, re.IGNORECASE)
+                if match:
+                    return {"growth_cagr": float(match.group(1))}
+            except Exception:
+                pass
+        return {"growth_cagr": None}
+
     documents = retrieve_financial_documents(state.ticker)
     
     llm = get_llm()
