@@ -8,8 +8,18 @@ load_dotenv()
 
 def get_llm(model: str = "gpt-4o", temperature: float = 0) -> ChatOpenAI:
     """
-    Returns a configured ChatOpenAI instance, supporting either OpenAI or Gemini.
+    Returns a configured ChatOpenAI instance, supporting either OpenAI, Gemini, or Colab.
     """
+    colab_tunnel = os.environ.get("COLAB_TUNNEL_URL")
+    if colab_tunnel:
+        base_url = f"{colab_tunnel.rstrip('/')}/v1"
+        return ChatOpenAI(
+            model="llama-3.2-3b-instruct",
+            temperature=temperature,
+            api_key=SecretStr("colab_dummy_key"),
+            base_url=base_url
+        )
+
     gemini_key = os.environ.get("GEMINI_API_KEY")
     api_key = gemini_key or os.environ.get("OPENAI_API_KEY", "dummy_key")
     model_name = ("gemini-1.5-pro" if "4" in model else "gemini-1.5-flash") if gemini_key else model
@@ -23,6 +33,7 @@ def get_llm(model: str = "gpt-4o", temperature: float = 0) -> ChatOpenAI:
         kwargs["base_url"] = "https://generativelanguage.googleapis.com/v1beta/openai/"
 
     return ChatOpenAI(**kwargs)
+
 
 
 
