@@ -14,7 +14,7 @@ def get_llm(model: str = "gpt-4o", temperature: float = 0) -> ChatOpenAI:
     if colab_tunnel:
         base_url = f"{colab_tunnel.rstrip('/')}/v1"
         return ChatOpenAI(
-            model="llama-3.2-3b-instruct",
+            model="llama-3-8b-instruct",
             temperature=temperature,
             api_key=SecretStr("colab_dummy_key"),
             base_url=base_url
