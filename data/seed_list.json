@@ -1,0 +1,302 @@
+[
+  {
+    "ticker": "MSFT",
+    "company_name": "Microsoft Corporation",
+    "ai_factory_role": null,
+    "is_hyperscaler": true
+  },
+  {
+    "ticker": "GOOGL",
+    "company_name": "Alphabet Inc.",
+    "ai_factory_role": null,
+    "is_hyperscaler": true
+  },
+  {
+    "ticker": "AAPL",
+    "company_name": "Apple Inc.",
+    "ai_factory_role": null,
+    "is_hyperscaler": true
+  },
+  {
+    "ticker": "AMZN",
+    "company_name": "Amazon.com, Inc.",
+    "ai_factory_role": null,
+    "is_hyperscaler": true
+  },
+  {
+    "ticker": "META",
+    "company_name": "Meta Platforms, Inc.",
+    "ai_factory_role": null,
+    "is_hyperscaler": true
+  },
+  {
+    "ticker": "ORCL",
+    "company_name": "Oracle Corporation",
+    "ai_factory_role": null,
+    "is_hyperscaler": true
+  },
+  {
+    "ticker": "NVDA",
+    "company_name": "NVIDIA Corporation",
+    "ai_factory_role": "Compute",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "AMD",
+    "company_name": "Advanced Micro Devices, Inc.",
+    "ai_factory_role": "Compute",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "SMCI",
+    "company_name": "Super Micro Computer, Inc.",
+    "ai_factory_role": "Compute",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "DELL",
+    "company_name": "Dell Technologies Inc.",
+    "ai_factory_role": "Compute",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "HPE",
+    "company_name": "Hewlett Packard Enterprise",
+    "ai_factory_role": "Compute",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "INTC",
+    "company_name": "Intel Corporation",
+    "ai_factory_role": "Compute",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "MU",
+    "company_name": "Micron Technology, Inc.",
+    "ai_factory_role": "Compute",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "WDC",
+    "company_name": "Western Digital Corporation",
+    "ai_factory_role": "Compute",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "STX",
+    "company_name": "Seagate Technology Holdings plc",
+    "ai_factory_role": "Compute",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "ANET",
+    "company_name": "Arista Networks, Inc.",
+    "ai_factory_role": "Networking",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "AVGO",
+    "company_name": "Broadcom Inc.",
+    "ai_factory_role": "Networking",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "LITE",
+    "company_name": "Lumentum Holdings Inc.",
+    "ai_factory_role": "Networking",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "COHR",
+    "company_name": "Coherent Corp.",
+    "ai_factory_role": "Networking",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "CSCO",
+    "company_name": "Cisco Systems, Inc.",
+    "ai_factory_role": "Networking",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "JNPR",
+    "company_name": "Juniper Networks, Inc.",
+    "ai_factory_role": "Networking",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "CIEN",
+    "company_name": "Ciena Corporation",
+    "ai_factory_role": "Networking",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "FN",
+    "company_name": "Fabrinet",
+    "ai_factory_role": "Networking",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "EXTR",
+    "company_name": "Extreme Networks, Inc.",
+    "ai_factory_role": "Networking",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "CEG",
+    "company_name": "Constellation Energy Corporation",
+    "ai_factory_role": "Power",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "VST",
+    "company_name": "Vistra Corp.",
+    "ai_factory_role": "Power",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "GE",
+    "company_name": "General Electric Company",
+    "ai_factory_role": "Power",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "ETN",
+    "company_name": "Eaton Corporation plc",
+    "ai_factory_role": "Power",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "NEE",
+    "company_name": "NextEra Energy, Inc.",
+    "ai_factory_role": "Power",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "DUK",
+    "company_name": "Duke Energy Corporation",
+    "ai_factory_role": "Power",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "SO",
+    "company_name": "The Southern Company",
+    "ai_factory_role": "Power",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "AEP",
+    "company_name": "American Electric Power Company, Inc.",
+    "ai_factory_role": "Power",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "AES",
+    "company_name": "The AES Corporation",
+    "ai_factory_role": "Power",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "VRT",
+    "company_name": "Vertiv Holdings Co.",
+    "ai_factory_role": "Cooling",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "MOD",
+    "company_name": "Modine Manufacturing Company",
+    "ai_factory_role": "Cooling",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "AAON",
+    "company_name": "AAON, Inc.",
+    "ai_factory_role": "Cooling",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "JCI",
+    "company_name": "Johnson Controls International plc",
+    "ai_factory_role": "Cooling",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "CARR",
+    "company_name": "Carrier Global Corporation",
+    "ai_factory_role": "Cooling",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "TT",
+    "company_name": "Trane Technologies plc",
+    "ai_factory_role": "Cooling",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "SPXC",
+    "company_name": "SPX Technologies, Inc.",
+    "ai_factory_role": "Cooling",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "HON",
+    "company_name": "Honeywell International Inc.",
+    "ai_factory_role": "Cooling",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "ACM",
+    "company_name": "AECOM",
+    "ai_factory_role": "Construction",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "J",
+    "company_name": "Jacobs Solutions Inc.",
+    "ai_factory_role": "Construction",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "EME",
+    "company_name": "EMCOR Group, Inc.",
+    "ai_factory_role": "Construction",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "PWR",
+    "company_name": "Quanta Services, Inc.",
+    "ai_factory_role": "Construction",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "FLR",
+    "company_name": "Fluor Corporation",
+    "ai_factory_role": "Construction",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "KBR",
+    "company_name": "KBR, Inc.",
+    "ai_factory_role": "Construction",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "TTEK",
+    "company_name": "Tetra Tech, Inc.",
+    "ai_factory_role": "Construction",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "DY",
+    "company_name": "Dycom Industries, Inc.",
+    "ai_factory_role": "Construction",
+    "is_hyperscaler": false
+  },
+  {
+    "ticker": "MTZ",
+    "company_name": "MasTec, Inc.",
+    "ai_factory_role": "Construction",
+    "is_hyperscaler": false
+  }
+]

@@ -3,9 +3,13 @@
   "company_name": "Arista Networks, Inc.",
   "ai_factory_role": "Networking",
   "is_hyperscaler": false,
-  "moat_score": 3.75,
+  "moat_score": 5.0,
   "growth_cagr": 25.0,
   "risks": [
     "customer concentration"
-  ]
+  ],
+  "has_architectural_lock_in": true,
+  "has_ecosystem_dominance": true,
+  "has_high_switching_costs": true,
+  "has_scarcity_or_bottleneck": true
 }

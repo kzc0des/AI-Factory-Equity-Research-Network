@@ -1,0 +1,15 @@
+{
+  "ticker": "AES",
+  "company_name": "The AES Corporation",
+  "ai_factory_role": "Power",
+  "is_hyperscaler": false,
+  "moat_score": 2.5,
+  "growth_cagr": 11.0,
+  "risks": [
+    "cyclicality"
+  ],
+  "has_architectural_lock_in": true,
+  "has_ecosystem_dominance": true,
+  "has_high_switching_costs": false,
+  "has_scarcity_or_bottleneck": false
+}

@@ -8,5 +8,9 @@
   "risks": [
     "customer concentration",
     "cyclicality"
-  ]
+  ],
+  "has_architectural_lock_in": true,
+  "has_ecosystem_dominance": true,
+  "has_high_switching_costs": false,
+  "has_scarcity_or_bottleneck": false
 }

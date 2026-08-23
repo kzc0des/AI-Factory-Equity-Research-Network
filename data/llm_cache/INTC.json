@@ -1,0 +1,16 @@
+{
+  "ticker": "INTC",
+  "company_name": "Intel Corporation",
+  "ai_factory_role": "Compute",
+  "is_hyperscaler": false,
+  "moat_score": 1.25,
+  "growth_cagr": 5.0,
+  "risks": [
+    "execution",
+    "cyclicality"
+  ],
+  "has_architectural_lock_in": true,
+  "has_ecosystem_dominance": false,
+  "has_high_switching_costs": false,
+  "has_scarcity_or_bottleneck": false
+}

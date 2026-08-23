@@ -3,9 +3,13 @@
   "company_name": "Constellation Energy Corporation",
   "ai_factory_role": "Power",
   "is_hyperscaler": false,
-  "moat_score": 3.75,
+  "moat_score": 5.0,
   "growth_cagr": 20.0,
   "risks": [
     "cyclicality"
-  ]
+  ],
+  "has_architectural_lock_in": true,
+  "has_ecosystem_dominance": true,
+  "has_high_switching_costs": true,
+  "has_scarcity_or_bottleneck": true
 }

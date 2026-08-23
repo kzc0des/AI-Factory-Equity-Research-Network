@@ -1,0 +1,15 @@
+{
+  "ticker": "NEE",
+  "company_name": "NextEra Energy, Inc.",
+  "ai_factory_role": "Power",
+  "is_hyperscaler": false,
+  "moat_score": 3.75,
+  "growth_cagr": 12.0,
+  "risks": [
+    "cyclicality"
+  ],
+  "has_architectural_lock_in": true,
+  "has_ecosystem_dominance": true,
+  "has_high_switching_costs": true,
+  "has_scarcity_or_bottleneck": false
+}

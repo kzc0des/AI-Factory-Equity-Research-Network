@@ -1,0 +1,16 @@
+{
+  "ticker": "MU",
+  "company_name": "Micron Technology, Inc.",
+  "ai_factory_role": "Compute",
+  "is_hyperscaler": false,
+  "moat_score": 3.75,
+  "growth_cagr": 25.0,
+  "risks": [
+    "cyclicality",
+    "execution"
+  ],
+  "has_architectural_lock_in": true,
+  "has_ecosystem_dominance": true,
+  "has_high_switching_costs": true,
+  "has_scarcity_or_bottleneck": false
+}

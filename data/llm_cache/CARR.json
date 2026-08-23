@@ -1,0 +1,15 @@
+{
+  "ticker": "CARR",
+  "company_name": "Carrier Global Corporation",
+  "ai_factory_role": "Cooling",
+  "is_hyperscaler": false,
+  "moat_score": 3.75,
+  "growth_cagr": 12.0,
+  "risks": [
+    "execution"
+  ],
+  "has_architectural_lock_in": true,
+  "has_ecosystem_dominance": true,
+  "has_high_switching_costs": true,
+  "has_scarcity_or_bottleneck": false
+}

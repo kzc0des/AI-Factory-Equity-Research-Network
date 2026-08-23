@@ -1,0 +1,15 @@
+{
+  "ticker": "FLR",
+  "company_name": "Fluor Corporation",
+  "ai_factory_role": "Construction",
+  "is_hyperscaler": false,
+  "moat_score": 1.25,
+  "growth_cagr": 6.0,
+  "risks": [
+    "execution"
+  ],
+  "has_architectural_lock_in": true,
+  "has_ecosystem_dominance": false,
+  "has_high_switching_costs": false,
+  "has_scarcity_or_bottleneck": false
+}
