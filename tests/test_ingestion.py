@@ -47,7 +47,7 @@ def test_filter_companies_with_default_seed_list():
     assert "AMD" in tickers
     assert "VST" in tickers
     assert "J" in tickers
-    assert len(result) == 20
+    assert len(result) == 44
     
     for company in result:
         assert isinstance(company, CompanyProfile)
