@@ -89,18 +89,12 @@ graph TD
 ## 📁 Repository Structure
 
 ```text
-├── CONTEXT.md                 # Ubiquitous domain terminology & concepts
-├── PROJECT_SPEC.md            # Detailed project specification
 ├── requirements.txt           # Python dependencies
-├── docs/
-│   └── adr/                   # Architectural Decision Records (ADRs)
 ├── data/                      # Data files & offline mocks
 │   ├── seed_list.json         # Investable universe definition (50 targets)
 │   ├── financials.json        # Operating margins cache
 │   ├── transcripts/           # Text transcripts for offline CAGR reading
 │   └── llm_cache/             # Cached LLM evaluation responses
-├── research/
-│   └── session_summary.md     # Core concepts study guide
 ├── scripts/                   # Support scripts and developer tools
 │   ├── generate_offline_mocks.py # Auto-generates seed_list.json and cached data
 │   ├── download_financials.py    # Downloads margins from yfinance API
