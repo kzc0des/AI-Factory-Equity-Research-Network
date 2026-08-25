@@ -34,11 +34,13 @@ def test_fetch_operating_margin_live(mock_is_demo_mode, mock_yf):
     mock_yf.Ticker.assert_called_once()
     assert margin == 25.5
 
+@patch("src.agents.margin.os.path.exists")
 @patch("src.agents.margin.yf")
 @patch("src.agents.margin.is_demo_mode")
-def test_fetch_operating_margin_live_missing_data(mock_is_demo_mode, mock_yf):
+def test_fetch_operating_margin_live_missing_data(mock_is_demo_mode, mock_yf, mock_exists):
     # Arrange
     mock_is_demo_mode.return_value = False
+    mock_exists.return_value = False
     mock_ticker = MagicMock()
     mock_ticker.info = {}
     mock_yf.Ticker.return_value = mock_ticker
@@ -120,12 +122,14 @@ def test_margin_analysis_node_missing_margin(mock_fetch):
     assert update["operating_margin"] is None
     assert update["margin_score"] is None
 
+@patch("src.agents.margin.os.path.exists")
 @patch("src.agents.margin.yf")
 @patch("src.agents.margin.is_demo_mode")
 @patch("src.agents.margin.logger")
-def test_fetch_operating_margin_exception(mock_logger, mock_is_demo_mode, mock_yf):
+def test_fetch_operating_margin_exception(mock_logger, mock_is_demo_mode, mock_yf, mock_exists):
     # Arrange
     mock_is_demo_mode.return_value = False
+    mock_exists.return_value = False
     mock_yf.Ticker.side_effect = Exception("API error")
 
     # Act
@@ -133,5 +137,5 @@ def test_fetch_operating_margin_exception(mock_logger, mock_is_demo_mode, mock_y
 
     # Assert
     assert margin is None
-    mock_logger.error.assert_called_once_with("Error fetching operating margin for NVDA: API error")
+    mock_logger.error.assert_called_once_with("Error fetching operating margin for NVDA from yfinance: API error")
 
