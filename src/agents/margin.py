@@ -95,8 +95,22 @@ def fetch_operating_margin(ticker: str) -> Optional[float]:
             return margin_decimal * 100.0
             
     except Exception as e:
-        logger.error(f"Error fetching operating margin for {ticker}: {e}")
+        logger.error(f"Error fetching operating margin for {ticker} from yfinance: {e}")
         
+    # Resilient fallback: Try to read from local financials cache
+    logger.info(f"Attempting cache fallback for {ticker} operating margin...")
+    cache_path = os.path.join("data", "financials.json")
+    if os.path.exists(cache_path):
+        try:
+            with open(cache_path, "r") as f:
+                data = json.load(f)
+            margin = data.get(ticker)
+            if margin is not None:
+                logger.info(f"Successfully loaded cached operating margin for {ticker}: {margin}%")
+                return float(margin)
+        except Exception as cache_err:
+            logger.error(f"Error reading financials cache for {ticker}: {cache_err}")
+
     return None
 
 def margin_analysis_node(state: CompanyProfile) -> Dict[str, Any]:
