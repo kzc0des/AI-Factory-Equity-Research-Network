@@ -61,21 +61,33 @@ class ChatCompletionRequest(BaseModel):
 def load_model_and_tokenizer(model_path: str):
     global model, tokenizer
     print(f"Loading model from {model_path}...")
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
-    
-    # Configure model loading for GPU
-    if torch.cuda.is_available():
-        model = AutoModelForCausalLM.from_pretrained(
-            model_path,
-            torch_dtype=torch.float16,
-            device_map="auto"
+    try:
+        from unsloth import FastLanguageModel  # type: ignore
+        print("Using Unsloth FastLanguageModel for 4-bit optimized loading...")
+        model, tokenizer = FastLanguageModel.from_pretrained(
+            model_name=model_path,
+            max_seq_length=2048,
+            dtype=None,
+            load_in_4bit=True,
         )
-    else:
-        model = AutoModelForCausalLM.from_pretrained(
-            model_path,
-            device_map="cpu"
-        )
-    print("Model loaded successfully.")
+        # Enable fast inference
+        FastLanguageModel.for_inference(model)
+        print("Model loaded successfully using Unsloth.")
+    except Exception as e:
+        print(f"Unsloth loading failed or not available (falling back to standard HF): {e}")
+        tokenizer = AutoTokenizer.from_pretrained(model_path)
+        if torch.cuda.is_available():
+            model = AutoModelForCausalLM.from_pretrained(
+                model_path,
+                torch_dtype=torch.float16,
+                device_map="auto"
+            )
+        else:
+            model = AutoModelForCausalLM.from_pretrained(
+                model_path,
+                device_map="cpu"
+            )
+        print("Model loaded successfully.")
 
 def extract_json_block(text: str) -> str:
     """
@@ -97,11 +109,12 @@ async def chat_completions(req: ChatCompletionRequest):
     messages_list = [{"role": m.role, "content": m.content} for m in req.messages]
     
     # Extract structural constraints if tools are present
-    has_tools = req.tools is not None and len(req.tools) > 0
+    tools = req.tools
+    has_tools = tools is not None and len(tools) > 0
     target_tool = None
     
-    if has_tools:
-        target_tool = req.tools[0]
+    if has_tools and tools is not None:
+        target_tool = tools[0]
         schema = target_tool["function"]["parameters"]
         # Append target JSON Schema instruction to the user's prompt
         if messages_list and messages_list[-1]["role"] == "user":
@@ -131,12 +144,13 @@ async def chat_completions(req: ChatCompletionRequest):
     model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
     
     # Generate completion
+    temp = req.temperature if req.temperature is not None else 0.0
     with torch.no_grad():
         generated_ids = model.generate(
             **model_inputs,
             max_new_tokens=req.max_tokens,
-            temperature=req.temperature if req.temperature > 0 else 0.01,
-            do_sample=req.temperature > 0
+            temperature=temp if temp > 0 else 0.01,
+            do_sample=temp > 0
         )
         
     generated_ids = [
@@ -148,6 +162,7 @@ async def chat_completions(req: ChatCompletionRequest):
     # Map generated response back to OpenAI structure
     if has_tools and target_tool:
         json_content = extract_json_block(generated_text)
+        print(f"\n--- PROMPT ---\n{text[-300:]}\n--- MODEL RESPONSE ---\n{generated_text}\n--- EXTRACTED JSON ---\n{json_content}\n")
         tool_call_id = f"call_{uuid.uuid4().hex[:12]}"
         
         choices = [
